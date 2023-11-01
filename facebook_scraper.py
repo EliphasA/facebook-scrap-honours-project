@@ -63,15 +63,13 @@ def get_post_comment(post_url_list):
         authors = driver.find_elements(By.CSS_SELECTOR,"span[class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x676frb x1nxh6w3 x1sibtaa x1s688f xzsf02u']")
         comments = driver.find_elements(By.CSS_SELECTOR,"div[class='xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs']")
         
-
         for comment in comments:
-            print(comment.text)
             comments_content.append(comment.text)
             
         for author in authors:
-            print("Author: ",author.text)
             comment_author.append(author.text)
-    df = pd.DataFrame({"comment_author":comment_author,"comment_content":comments_content})
+            
+    df = pd.DataFrame({"comment_content":comments_content})
     return df
 
     # Close the WebDriver
