@@ -1,6 +1,7 @@
 # Impporting packages
 import nltk
 from nltk.stem import WordNetLemmatizer
+import matplotlib.pyplot as plt
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.collocations import *
@@ -120,3 +121,7 @@ def processing_with_stemming(df):
     text = remove_stopword(text)
     text = remove_short_tokens(text)
     
+
+def add_labels(x,y):
+    for i in range(len(x)):
+        plt.text(i,y[i],y[i],ha='center')
